@@ -28,12 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.novaIgraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.zavrsiIgruToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.izmeniMapuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.izlazToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbTimer = new System.Windows.Forms.Label();
             this.panelMapa = new System.Windows.Forms.Panel();
+            this.timer = new System.Windows.Forms.Timer(this.components);
+            this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -41,6 +46,7 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.novaIgraToolStripMenuItem,
+            this.zavrsiIgruToolStripMenuItem,
             this.izmeniMapuToolStripMenuItem,
             this.izlazToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -54,12 +60,21 @@
             this.novaIgraToolStripMenuItem.Name = "novaIgraToolStripMenuItem";
             this.novaIgraToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
             this.novaIgraToolStripMenuItem.Text = "Nova igra";
+            this.novaIgraToolStripMenuItem.Click += new System.EventHandler(this.novaIgraToolStripMenuItem_Click);
+            // 
+            // zavrsiIgruToolStripMenuItem
+            // 
+            this.zavrsiIgruToolStripMenuItem.Name = "zavrsiIgruToolStripMenuItem";
+            this.zavrsiIgruToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
+            this.zavrsiIgruToolStripMenuItem.Text = "Zavrsi igru";
+            this.zavrsiIgruToolStripMenuItem.Click += new System.EventHandler(this.zavrsiIgruToolStripMenuItem_Click);
             // 
             // izmeniMapuToolStripMenuItem
             // 
             this.izmeniMapuToolStripMenuItem.Name = "izmeniMapuToolStripMenuItem";
             this.izmeniMapuToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
             this.izmeniMapuToolStripMenuItem.Text = "Izmeni mapu";
+            this.izmeniMapuToolStripMenuItem.Click += new System.EventHandler(this.izmeniMapuToolStripMenuItem_Click);
             // 
             // izlazToolStripMenuItem
             // 
@@ -68,21 +83,39 @@
             this.izlazToolStripMenuItem.Text = "Izlaz";
             this.izlazToolStripMenuItem.Click += new System.EventHandler(this.izlazToolStripMenuItem_Click);
             // 
-            // label1
+            // lbTimer
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 604);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "label1";
+            this.lbTimer.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lbTimer.AutoSize = true;
+            this.lbTimer.Location = new System.Drawing.Point(12, 40);
+            this.lbTimer.Name = "lbTimer";
+            this.lbTimer.Size = new System.Drawing.Size(49, 13);
+            this.lbTimer.TabIndex = 2;
+            this.lbTimer.Text = "00:00:00";
             // 
             // panelMapa
             // 
-            this.panelMapa.Location = new System.Drawing.Point(12, 27);
+            this.panelMapa.Location = new System.Drawing.Point(12, 74);
             this.panelMapa.Name = "panelMapa";
             this.panelMapa.Size = new System.Drawing.Size(557, 563);
             this.panelMapa.TabIndex = 0;
+            // 
+            // timer
+            // 
+            this.timer.Enabled = true;
+            this.timer.Interval = 1000;
+            // 
+            // imageList
+            // 
+            this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
+            this.imageList.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList.Images.SetKeyName(0, "bomba.png");
+            this.imageList.Images.SetKeyName(1, "tile.png");
+            this.imageList.Images.SetKeyName(2, "four.png");
+            this.imageList.Images.SetKeyName(3, "one.png");
+            this.imageList.Images.SetKeyName(4, "three.png");
+            this.imageList.Images.SetKeyName(5, "two.png");
+            this.imageList.Images.SetKeyName(6, "red-flag.png");
             // 
             // MainForm
             // 
@@ -90,9 +123,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(579, 649);
             this.ControlBox = false;
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.panelMapa);
+            this.Controls.Add(this.lbTimer);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.panelMapa);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
@@ -111,8 +144,11 @@
         private System.Windows.Forms.ToolStripMenuItem novaIgraToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem izmeniMapuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem izlazToolStripMenuItem;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panelMapa;
+        private System.Windows.Forms.Timer timer;
+        public System.Windows.Forms.Label lbTimer;
+        private System.Windows.Forms.ToolStripMenuItem zavrsiIgruToolStripMenuItem;
+        public System.Windows.Forms.ImageList imageList;
     }
 }
 
